@@ -39,7 +39,7 @@ target_include_directories(sdl3 INTERFACE ${sdl3_DIR}/include/SDL3 ${sdl3_image_
 target_link_directories(sdl3 INTERFACE ${sdl3_DIR}/lib ${sdl3_image_DIR}/lib)
 endif()
 
-target_link_libraries(sdl3 INTERFACE SDL3 SDL3main)
+target_link_libraries(sdl3 INTERFACE SDL3)
 
 add_library(imgui STATIC)
 

@@ -1,3 +1,6 @@
+include(FetchContent)
+set(FETCHCONTENT_QUIET FALSE)
+
 find_package(Vulkan REQUIRED)
 
 add_library(vkbootstrap STATIC)
@@ -60,3 +63,22 @@ target_sources(imgui PRIVATE
 target_link_libraries(imgui PUBLIC Vulkan::Vulkan sdl3)
 
 target_include_directories(stb_image INTERFACE stb_image)
+
+# Adding SDL3
+# sdl3
+FetchContent_Declare(
+    SDL3
+    GIT_REPOSITORY  https://github.com/libsdl-org/SDL
+    GIT_TAG         prerelease-3.1.10
+    GIT_PROGRESS    TRUE
+)
+
+# sdl3_image
+FetchContent_Declare(
+    SDL3_IMAGE
+    GIT_REPOSITORY  https://github.com/libsdl-org/SDL_image
+    GIT_TAG         preview-3.1.0
+    GIT_PROGRESS    TRUE
+)
+
+FetchContent_MakeAvailable(SDL3 SDL3_IMAGE)

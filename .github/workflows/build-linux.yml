@@ -15,12 +15,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        lfs: 'true'
 
     - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y \
-          cmake \
           g++ \
           git \
           libx11-dev \
@@ -32,11 +33,16 @@ jobs:
           libvulkan-dev \
           vulkan-tools
 
-    - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    - name: Setup Ninja
+      uses: seanmiddleditch/gha-setup-ninja@v5
 
-    - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+    - name: Setup CMake
+      uses: threeal/cmake-action@v2.1.0
+      with:
+        generator: Ninja
+
+    - name: Compile program
+      run: make
 
     - name: Test
       working-directory: ${{github.workspace}}/build

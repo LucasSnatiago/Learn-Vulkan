@@ -23,6 +23,7 @@ jobs:
           cmake \
           g++ \
           git \
+          libavif-dev \
           libx11-dev \
           libxi-dev \
           libxrandr-dev \

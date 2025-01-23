@@ -27,7 +27,7 @@ FetchContent_Declare(
 FetchContent_Declare(
     SDL3_IMAGE
     GIT_REPOSITORY https://github.com/libsdl-org/SDL_image
-    GIT_TAG release-2.8.4
+    GIT_TAG prerelease-3.1.1
     GIT_PROGRESS TRUE
 )
 FetchContent_MakeAvailable(SDL3 SDL3_IMAGE)

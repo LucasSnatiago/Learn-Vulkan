@@ -12,6 +12,11 @@ run: all
 
 release: all
 	strip $(BIN_DIR)/$(BIN)
+	cp $(BUILD_DIR)/_deps/sdl3-build/libSDL3.so $(BIN_DIR)
+	cp $(BUILD_DIR)/_deps/sdl3-build/libSDL3.so.0 $(BIN_DIR)
+	cp $(BUILD_DIR)/_deps/sdl3-build/libSDL3.so.0.2.0 $(BIN_DIR)
+	echo "LD_PRELOAD=$(pwd)/libSDL3.so ./$(BIN)" >> $(BIN_DIR)/start.sh
+	chmod +x $(BIN_DIR)/start.sh
 
 clean:
 	$(RM) -r $(BUILD_DIR)

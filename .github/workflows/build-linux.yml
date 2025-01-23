@@ -42,14 +42,14 @@ jobs:
         generator: Ninja
 
     - name: Compile program
-      run: make
+      run: make release
 
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{env.BUILD_TYPE}}
 
     - name: Move file
-      run: mv bin/vulkan_guide vulkan_guide
+      run: mv bin/* .
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
@@ -57,6 +57,8 @@ jobs:
         name: vulkan-build-artifacts-linux
         path: |
           vulkan_guide
+          libSDL3*
+          start.sh
           assets/
           shaders/
         overwrite: true

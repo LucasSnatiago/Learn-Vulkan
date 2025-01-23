@@ -21,13 +21,13 @@ target_include_directories(tinyobjloader PUBLIC tinyobjloader)
 FetchContent_Declare(
     SDL3
     GIT_REPOSITORY https://github.com/libsdl-org/SDL
-    GIT_TAG prerelease-3.1.10
+    GIT_TAG release-3.2.0
     GIT_PROGRESS TRUE
 )
 FetchContent_Declare(
     SDL3_IMAGE
     GIT_REPOSITORY https://github.com/libsdl-org/SDL_image
-    GIT_TAG preview-3.1.0
+    GIT_TAG release-2.8.4
     GIT_PROGRESS TRUE
 )
 FetchContent_MakeAvailable(SDL3 SDL3_IMAGE)

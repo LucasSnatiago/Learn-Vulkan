@@ -9,6 +9,8 @@ add_library(vma INTERFACE)
 add_library(stb_image INTERFACE)
 add_library(tinyobjloader STATIC)
 
+add_subdirectory(fmt)
+
 target_include_directories(vma INTERFACE vma)
 target_include_directories(glm INTERFACE glm)
 

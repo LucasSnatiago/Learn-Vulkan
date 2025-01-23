@@ -6,6 +6,14 @@
 #include <vk_types.h>
 
 #include <vector>
+
+struct FrameData {
+	VkCommandPool _commandPool;
+	VkCommandBuffer _mainCommandBuffer;
+};
+
+constexpr unsigned int FRAME_OVERLAP = 2;
+
 class VulkanEngine {
 public:
 
@@ -14,6 +22,12 @@ public:
 	int _frameNumber {0};
 
 	VkExtent2D _windowExtent{ 1700 , 900 };
+	FrameData _frames[FRAME_OVERLAP];
+
+	FrameData& get_current_frame() { return _frames[_frameNumber % FRAME_OVERLAP]; };
+
+	VkQueue _graphicsQueue;
+	uint32_t _graphicsQueueFamily;
 
 	struct SDL_Window* _window{ nullptr };
 

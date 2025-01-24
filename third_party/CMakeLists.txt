@@ -10,10 +10,10 @@ add_library(sdl3 INTERFACE)
 add_library(sdl3_image INTERFACE)
 
 add_subdirectory(fmt)
-add_subdirectory(vulkan-headers)
 add_subdirectory(SDL)
 add_subdirectory(SDL_image)
 
+target_include_directories(vulkan-headers INTERFACE vulkan-headers)
 target_include_directories(vma INTERFACE vma)
 target_include_directories(glm INTERFACE glm)
 

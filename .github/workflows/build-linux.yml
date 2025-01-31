@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -33,7 +33,8 @@ jobs:
           libgl1-mesa-dev \
           libvulkan-dev \
           vulkan-tools \
-          vulkan-sdk
+          vulkan-sdk \
+          vulkan-headers
 
     - name: Setup Ninja
       uses: seanmiddleditch/gha-setup-ninja@v5

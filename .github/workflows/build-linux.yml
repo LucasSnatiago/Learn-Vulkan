@@ -32,8 +32,7 @@ jobs:
           libxcursor-dev \
           libgl1-mesa-dev \
           libvulkan-dev \
-          vulkan-tools \
-          vulkan-sdk
+          vulkan-tools
 
     - name: Setup Ninja
       uses: seanmiddleditch/gha-setup-ninja@v5

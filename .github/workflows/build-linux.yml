@@ -33,8 +33,7 @@ jobs:
           libgl1-mesa-dev \
           libvulkan-dev \
           vulkan-tools \
-          vulkan-sdk \
-          vulkan-headers
+          vulkan-sdk
 
     - name: Setup Ninja
       uses: seanmiddleditch/gha-setup-ninja@v5
